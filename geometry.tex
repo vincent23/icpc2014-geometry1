@@ -1,57 +1,77 @@
-%\documentclass[c]{beamer}
-\documentclass{beamer}
-\listfiles
+%% LaTeX-Beamer template for KIT design
+%% by Erik Burger, Christian Hammer
+%% title picture by Klaus Krogmann
+%%
+%% version 2.1
+%%
+%% mostly compatible to KIT corporate design v2.0
+%% http://intranet.kit.edu/gestaltungsrichtlinien.php
+%%
+%% Problems, bugs and comments to
+%% burger@kit.edu
 
-\mode<presentation>
-{
-  %\usetheme[deutsch,titlepage0]{KIT}
-\usetheme[deutsch]{KIT}
-% \usetheme{KIT}
-
-%%  \usefonttheme{structurebold}
-
-  \setbeamercovered{transparent}
-
-  \setbeamertemplate{enumerate items}[circle]
-  %\setbeamertemplate{enumerate items}[ball]
-
-}
-\usepackage{babel}
-\date{}
-%\DateText
-
-\newlength{\Ku}
-\setlength{\Ku}{1.43375pt}
-
+\documentclass[18pt]{beamer}
 \usepackage[utf8]{inputenc}
-\usepackage[TS1,T1]{fontenc}
-\usepackage{array}
-\usepackage{multicol}
-\usepackage{lipsum}
-\usepackage[]{algorithm2e}
-\usepackage{amsmath}
-\usepackage{color}
+%% SLIDE FORMAT
 
-\usenavigationsymbols
-%\usenavigationsymbols[sfHhdb]
-%\usenavigationsymbols[sfhHb]
+% use 'beamerthemekit' for standard 4:3 ratio
+% for widescreen slides (16:9), use 'beamerthemekitwide'
 
-%\title{}
-%\subtitle{}
-%\author[]{}
+\usepackage{templates/beamerthemekit}
+% \usepackage{templates/beamerthemekitwide}
 
-\AuthorTitleSep{\relax}
+%% TITLE PICTURE
 
-% \institute[]{}
+% if a custom picture is to be used on the title page, copy it into the 'logos'
+% directory, in the line below, replace 'mypicture' with the 
+% filename (without extension) and uncomment the following line
+% (picture proportions: 63 : 20 for standard, 169 : 40 for wide
+% *.eps format if you use latex+dvips+ps2pdf, 
+% *.jpg/*.png/*.pdf if you use pdflatex)
 
-\newlength{\tmplen}
+\titleimage{banner}
 
-\newcommand{\verysmall}{\fontsize{6pt}{8.6pt}\selectfont}
+%% TITLE LOGO
+
+% for a custom logo on the front page, copy your file into the 'logos'
+% directory, insert the filename in the line below and uncomment it
+
+\titlelogo{logo}
+
+% (*.eps format if you use latex+dvips+ps2pdf,
+% *.jpg/*.png/*.pdf if you use pdflatex)
+
+%% TikZ INTEGRATION
+
+% use these packages for PCM symbols and UML classes
+% \usepackage{templates/tikzkit}
+% \usepackage{templates/tikzuml}
+
+% the presentation starts here
+
+\title[Vortrag Geometrie I]{Geometrie I}
+\subtitle{Problemstellungen in 0 bis 3 Dimensionen}
+\author{Lukas Böhm, Eric Sallermann, Vincent Schüßler}
+
+\institute{ICPC Basispraktikum SS2014}
 
 \begin{document}
 
-\begin{frame}
+% change the following line to "ngerman" for German style date and logos
+\selectlanguage{ngerman}
 
+%title page
+\begin{frame}
+\titlepage
 \end{frame}
+
+%table of contents
+\begin{frame}{Übersicht}
+\tableofcontents
+\end{frame}
+
+\include{part1}
+\include{part2}
+\include{part3}
 
 \end{document}

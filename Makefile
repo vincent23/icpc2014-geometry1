@@ -8,4 +8,4 @@ main: ${OUT}
 	latexmk -pdf --output-directory=${OUTDIR} -auxdir=${OUTDIR} $<
 
 clean:
-	$(RM) -r out/*
+	$(RM) -r ${OUTDIR}/*
