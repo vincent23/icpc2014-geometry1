@@ -1,0 +1,34 @@
+\begin{frame}{Floating Point Beispiel}
+	\lstset{
+		language=C++,
+		tabsize=2
+	}
+	\lstinputlisting{error.cpp}
+	Ausgabe?
+\end{frame}
+
+\begin{frame}{Unerwartete Ergebnisse}
+	\begin{exampleblock}{Ausgabe}
+		3.5999999046325683594 \\
+		false\\
+		false
+	\end{exampleblock}
+	3.6 nicht darstellbar \\
+	Rundungsfehler \\
+	Seltsame Sonderwerte:
+	\begin{itemize}
+		\item NaN
+		\item Inf
+		\item +-0
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{IEEE 754 Knigge}
+	\begin{itemize}
+		\item Floats \& Doubles möglichst vermeiden
+		\item Wenn nötig, erst ganz spät von Ganzzahl zu Fließkomma wechseln
+		\item Bitte KEIN float und NUR double benutzen
+		\item Keine direkten Vergleiche
+	\end{itemize}
+
+\end{frame}
