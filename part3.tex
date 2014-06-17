@@ -15,8 +15,6 @@
 \begin{frame}{Flächeninhalt}
 	\textbf{Problem}: Wie groß ist der Flächeninhalt eines gegebenen Polygons?
 
-	\pause
-
 	\begin{block}{Flächeninhalt}
 		\begin{align*}
 			A &= \sum_{i=0}^{n-1} \frac{1}{2} (P_i \times P_{i+1})\qquad \textit{($P_n = P_0$)} \\
@@ -63,6 +61,11 @@
 \end{frame}
 
 \begin{frame}{Punkt in Polygon: Beispiele}
+	\begin{center}
+		\only<1>{\includegraphics[keepaspectratio,height=.8\textheight]{polygon_inside1.pdf}}
+		\only<2>{\includegraphics[keepaspectratio,height=.8\textheight]{polygon_inside2.pdf}}
+		\only<3>{\includegraphics[keepaspectratio,height=.8\textheight]{polygon_outside1.pdf}}
+	\end{center}
 \end{frame}
 
 \begin{frame}{Punkt in Polygon: Implementierung}
