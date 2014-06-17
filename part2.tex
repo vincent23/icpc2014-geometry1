@@ -141,8 +141,7 @@
 \begin{frame}{Vektoren - Kreuzprodukt}
 	\begin{center}
 		(Animation)\\
-		Quelle:\\
-		\url{http://upload.wikimedia.org/wikipedia/commons/6/6e/Cross_product.gif}
+		Quelle:	\url{http://upload.wikimedia.org/wikipedia/commons/6/6e/Cross_product.gif}
 	\end{center}
 \end{frame}
 
@@ -177,9 +176,50 @@
 \end{frame}
 
 \begin{frame}{Trigonometrie}
+	\begin{columns}
+	\column{.6\textwidth}
+	\includegraphics[width=1.1\textwidth,height=.8\textheight,keepaspectratio]{dreieck.png}
+	\column{.4\textwidth}
 	\begin{itemize}
-		\item Wiederholung zu Sinus, Cosinus, Tangens (vielleicht vor Winkelberechnung?)
-		\item Cosinus-Regel 
-		\item Sinus-Regel
+		\item $\sin \alpha = \frac{Gegenkathete}{Hypotenuse}$
+		\item $\cos \alpha = \frac{Ankathete}{Hypotenuse}$
+		\item $\tan \alpha = \frac{Gegenkathete}{Ankathete}$
 	\end{itemize}
+	\end{columns}
+	Quelle: \url{http://upload.wikimedia.org/wikipedia/commons/5/56/RechtwinkligesDreieck.svg}
+\end{frame}
+
+\begin{frame}{Trigonometrie}
+	\begin{center}
+		\includegraphics[width=0.6\textwidth,height=.8\textheight,keepaspectratio]{dreieck.png}
+	\end{center}
+	
+	\begin{exampleblock}{Cosinusregel}
+		\begin{itemize}
+			\item $c^2 = a^2 + b^2 - 2 * a * b * \cos \gamma$
+			\item $b^2 = a^2 + c^2 - 2 * a * c * \cos \beta$
+			\item $a^2 = b^2 + c^2 - 2 * b * c * \cos \alpha$
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Trigonometrie}
+	\begin{center}
+		\includegraphics[width=0.6\textwidth,height=.8\textheight,keepaspectratio]{dreieck.png}
+	\end{center}
+	
+	\begin{exampleblock}{Sinusregel}
+		$\frac{a}{\sin \alpha} = \frac{b}{\sin \beta} = \frac{c}{\sin \gamma} = \frac{a * b * c}{2 * F}$,
+		wobei F der Flächeninhalt des Dreiecks ist.
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Trigonometrie}
+	\begin{exampleblock}{atan2}
+		Die Funktion \textit{atan2(y, x)} gibt den Winkel (in RAD) zwischen der x-Achse und dem gegebenen Punkt (x,y) zurück.\\
+		Der Wertebereich ist $-\pi < atan2(y, x) \leq pi$.\\
+		atan2 ist \textbf{positiv}, wenn die Drehung \textbf{gegen} den Uhrzeigersinn erfolgt, ansonsten \textbf{negativ}.
+	\end{exampleblock}
+	
+	Hinweis: Um von RAD zu DEG zu konvertieren, ist eine Multiplikation mit $\frac{180}{\pi}$ nötig.
 \end{frame}
