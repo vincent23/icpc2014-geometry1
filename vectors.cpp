@@ -44,6 +44,16 @@ bool ccw(point p, point q, point r) {
 }
 
 //Kollinear-Test
+const double EPS = 1e-9;
 bool collinear(point p, point q, point r) {
     return fabs(cross(toVec(p, q), toVec(p, r))) < EPS;
+}
+
+//Winkel zwischen drei Punkten (in RAD)
+double angle(point a, point o, point b) {
+    vec oa = toVec(o, a);
+    vec ob = toVec(o, b);
+    
+    return acos(dot(oa, ob) /
+                sqrt(normSquared(oa) * normSquared(ob)));
 }

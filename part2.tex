@@ -35,15 +35,15 @@
 \end{frame}
 
 \begin{frame}{Vektoren - Einführung}
-	\begin{exampleblock}{Skalieren eines Vektors}
+	\begin{block}{Skalieren eines Vektors}
 		$\lambda * \overrightarrow{v} := \left(\begin{array}{c} \lambda * x \\ \lambda * y \end{array}\right)$ \\
 		Für $\lambda \in (0, 1)$ wird $\overrightarrow{v}$ kürzer,\\
 		für $\lambda = 1$ behält $\overrightarrow{v}$ seine Länge bei,\\
 		für $\lambda > 1$ wird $\overrightarrow{v}$ länger.
-	\end{exampleblock}
-	\begin{exampleblock}{Verschieben eines Punktes um einen Vektor}
+	\end{block}
+	\begin{block}{Verschieben eines Punktes um einen Vektor}
 		$P + \overrightarrow{v} := \left(\begin{array}{c} P_x \\ P_y \end{array}\right) + \left(\begin{array}{c} v_x \\ v_y \end{array}\right) = \left(\begin{array}{c} P_x + v_x \\ P_y + v_y \end{array}\right)$
-	\end{exampleblock}
+	\end{block}
 \end{frame}
 
 \begin{frame}{Vektoren - Einführung}
@@ -93,12 +93,59 @@
 \end{frame}
 
 \begin{frame}{Vektoren - Einführung}
-	\begin{exampleblock}{Länge eines Vektors}
+	\begin{block}{Länge eines Vektors}
 		Die Länge eines Vektors hängt von der verwendeten Norm $\norm{\cdot}$ ab,\\
 		überlicherweise verwenden wir die {\bf Euklische Norm} $\norm{\cdot}_2$ .\\
 		Im zweidimensionalen Fall ist sie definiert als\\
 		$\norm{\left(\begin{array}{c} x \\ y \end{array}\right)}_2 := \sqrt{x^2 + y^2}$
-	\end{exampleblock}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Vektoren - Skalarprodukt}
+	\begin{block}{Skalarprodukt zweier Vektoren im kartesischen Koordinatensystem}
+		$\left(\begin{array}{c} a_x \\ a_y \end{array}\right) \cdot \left(\begin{array}{c} b_x \\ b_y \end{array}\right) := a_x * b_x + a_y * b_y$
+	\end{block}
+	
+	Anschaulich betrachtet liefert das Skalarprodukt der Vektoren $\overrightarrow{a}$ und $\overrightarrow{b}$ einen Wert
+	\begin{itemize}
+		\item $< 0$, wenn $\overrightarrow{a}$ und $\overrightarrow{b}$ einen stumpfen Winkel ($> 90^{\circ}$) bilden,
+		\item $= 0$, wenn $\overrightarrow{a}$ und $\overrightarrow{b}$ rechtwinklig aufeinander stehen und
+		\item $> 0$, wenn $\overrightarrow{a}$ und $\overrightarrow{b}$ einen spitzen Winkel ($< 90^{\circ}$) bilden.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Vektoren - Kreuzprodukt}
+	\begin{block}{Kreuzprodukt zweier Vektoren im zweidimensionalen Fall}
+		$\left(\begin{array}{c} a_x \\ a_y \end{array}\right) \times \left(\begin{array}{c} b_x \\ b_y \end{array}\right) := a_x * b_y - a_y * b_x$
+	\end{block}
+	
+	\begin{itemize}
+		\item Überlicherweise nur im dreidimensionalen Raum definiert. Das Ergebnis ist ein Vektor, der orthogonal auf beide Eingabevektoren steht.
+		\item Im zweidimensionalen Fall liefert das Kreuzprodukt die {\bf Z-Koordinate} eines orthogonalen Vektors, der entlang der Z-Achse zeigt.
+		\item Länge dieses Vektors entspricht dem Flächeninhalt des Parallelogramms mit $\overrightarrow{a}$ und $\overrightarrow{b}$ als Seiten.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Vektoren - Kreuzprodukt}
+	\begin{center}
+		(Animation)\\
+		Quelle:	\url{http://upload.wikimedia.org/wikipedia/commons/6/6e/Cross_product.gif}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Linksknick-Test/CCW-Test}
+	Anhand unserer bisherigen Ergebnisse können wir nun ganz einfach einen Linksknick-Test generieren.
+	
+	\begin{block}{Linksknick-Test}
+		\textit{Gegeben:} Drei Punkte $p$, $q$ und $r$.\\ \ \\
+		
+		Bilde die Vektoren $\overrightarrow{pq}$ und $\overrightarrow{pr}$. Berechne das Kreuzprodukt $\tau = \overrightarrow{pq} \times \overrightarrow{pr}$. Der Streckenzug $p \rightarrow q \rightarrow r$ bildet,\\
+		falls $\tau < 0$, einen Rechtsknick,\\
+		bei $\tau = 0$ sind die Strecken koolinear, und\\
+		falls $\tau > 0$, einen Linksknick.\\ \ \\
+		
+		Wenn also $\tau > 0$ gilt, so ist $p \rightarrow q \rightarrow r$ ein Linksknick.
+	\end{block}
 \end{frame}
 
 \begin{frame}{Vektoren - Einführung - Code}
@@ -117,54 +164,12 @@
 	\lstinputlisting[firstline=16, lastline=29]{vectors.cpp}
 \end{frame}
 
-\begin{frame}{Vektoren - Skalarprodukt}
-	\begin{exampleblock}{Skalarprodukt zweier Vektoren im kartesischen Koordinatensystem}
-		$\left(\begin{array}{c} a_x \\ a_y \end{array}\right) \cdot \left(\begin{array}{c} b_x \\ b_y \end{array}\right) := a_x * b_x + a_y * b_y$
-	\end{exampleblock}
-	
-	Anschaulich betrachtet liefert das Skalarprodukt der Vektoren $\overrightarrow{a}$ und $\overrightarrow{b}$ einen Wert\\
-	$< 0$, wenn $\overrightarrow{a}$ und $\overrightarrow{b}$ einen stumpfen Winkel ($> 90^{\circ}$) bilden,\\
-	$= 0$, wenn $\overrightarrow{a}$ und $\overrightarrow{b}$ rechtwinklig aufeinander stehen und\\
-	$> 0$, wenn $\overrightarrow{a}$ und $\overrightarrow{b}$ einen spitzen Winkel ($< 90^{\circ}$) bilden.
-\end{frame}
-
-\begin{frame}{Vektoren - Kreuzprodukt}
-	\begin{exampleblock}{Kreuzprodukt zweier Vektoren im zweidimensionalen Fall}
-		$\left(\begin{array}{c} a_x \\ a_y \end{array}\right) \times \left(\begin{array}{c} b_x \\ b_y \end{array}\right) := a_x * b_y - a_y * b_x$
-	\end{exampleblock}
-	
-	Das Kreuzprodukt ist normalerweise im dreidimensionalen Raum definiert und liefert einen neuen Vektor, der orthogonal auf beide Vektoren der Eingabe steht.\\
-	Im zweidimensionalen Fall liefert das Kreuzprodukt jedoch einen Wert, nämlich die {\bf Z-Koordinate} des Vektors, der senkrecht auf die beiden Vektoren stehen täte.
-	Die Länge des neuen Vektors bzw. der Quadrat des Wertes im zweidimensionalen Fall liefert den Flächeninhalt des Parallelogramms, das von den Vektoren $\overrightarrow{a}$ und $\overrightarrow{b}$ aufgespannt wird.
-\end{frame}
-
-\begin{frame}{Vektoren - Kreuzprodukt}
-	\begin{center}
-		(Animation)\\
-		Quelle:	\url{http://upload.wikimedia.org/wikipedia/commons/6/6e/Cross_product.gif}
-	\end{center}
-\end{frame}
-
 \begin{frame}{Vektoren - Skalarprodukt/Kreuzprodukt - Code}
 	\lstset{
 		language=C++,
 		tabsize=1
 	}
 	\lstinputlisting[firstline=31, lastline=39]{vectors.cpp}
-\end{frame}
-
-\begin{frame}{Linksknick-Test/CCW-Test}
-	Anhand unserer bisherigen Ergebnisse können wir nun ganz einfach einen Linksknick-Test generieren.
-	
-	\begin{exampleblock}{}
-		\textit{Gegeben:} Drei Punkte $p$, $q$ und $r$.\\
-		Bilde die Vektoren $\overrightarrow{pq}$ und $\overrightarrow{pr}$. Berechne das Kreuzprodukt $\tau = \overrightarrow{pq} \times \overrightarrow{pr}$. Der Streckenzug $p \rightarrow q \rightarrow r$ bildet,\\
-		falls $\tau < 0$, einen Rechtsknick,\\
-		bei $\tau = 0$ sind die Strecken koolinear, und\\
-		falls $\tau > 0$, einen Linksknick.\\ \ \\
-		
-		Wenn also $\tau > 0$ gilt, so ist $p \rightarrow q \rightarrow r$ ein Linksknick.
-	\end{exampleblock}
 \end{frame}
 
 \begin{frame}{Linksknick-Test/CCW-Test - Code}
@@ -194,13 +199,13 @@
 		\includegraphics[width=0.6\textwidth,height=.8\textheight,keepaspectratio]{dreieck.png}
 	\end{center}
 	
-	\begin{exampleblock}{Cosinusregel}
+	\begin{block}{Cosinusregel}
 		\begin{itemize}
 			\item $c^2 = a^2 + b^2 - 2 * a * b * \cos \gamma$
 			\item $b^2 = a^2 + c^2 - 2 * a * c * \cos \beta$
 			\item $a^2 = b^2 + c^2 - 2 * b * c * \cos \alpha$
 		\end{itemize}
-	\end{exampleblock}
+	\end{block}
 \end{frame}
 
 \begin{frame}{Trigonometrie}
@@ -208,18 +213,36 @@
 		\includegraphics[width=0.6\textwidth,height=.8\textheight,keepaspectratio]{dreieck.png}
 	\end{center}
 	
-	\begin{exampleblock}{Sinusregel}
+	\begin{block}{Sinusregel}
 		$\frac{a}{\sin \alpha} = \frac{b}{\sin \beta} = \frac{c}{\sin \gamma} = \frac{a * b * c}{2 * F}$,
 		wobei F der Flächeninhalt des Dreiecks ist.
-	\end{exampleblock}
+	\end{block}
 \end{frame}
 
 \begin{frame}{Trigonometrie}
-	\begin{exampleblock}{atan2}
-		Die Funktion \textit{atan2(y, x)} gibt den Winkel (in RAD) zwischen der x-Achse und dem gegebenen Punkt (x,y) zurück.\\
-		Der Wertebereich ist $-\pi < atan2(y, x) \leq pi$.\\
-		atan2 ist \textbf{positiv}, wenn die Drehung \textbf{gegen} den Uhrzeigersinn erfolgt, ansonsten \textbf{negativ}.
-	\end{exampleblock}
+	\begin{block}{atan2(y, x)}
+		\textit{Gegeben:} Punkt $(x,y)$\\ \ \\
+		
+		\hangindent+20pt \hangafter=1
+		\textit{Rückgabewert:} Winkel (in RAD) zwischen der x-Achse und dem Punkt $(x,y)$. Der Wert hat ein \textbf{positives} Vorzeichen, wenn die Drehung \textbf{gegen} den Uhrzeigersinn erfolgt, ansonsten negatives Vorzeichen.\\ \ \\
+
+		Der Wertebereich ist $-\pi < atan2(y, x) \leq \pi$.
+	\end{block}
 	
 	Hinweis: Um von RAD zu DEG zu konvertieren, ist eine Multiplikation mit $\frac{180}{\pi}$ nötig.
+\end{frame}
+
+\begin{frame}{Trigonometrie}
+	\begin{block}{Winkelberechnung zwischen drei Punkten}
+		\textit{Gegeben:} Drei Punkte $a, o, b$\\
+		\textit{Gesucht:} $\sphericalangle aob$\\ \ \\
+
+		Formel: $\cos \phi = \left|\frac{\overrightarrow{oa} \cdot \overrightarrow{ob}}{\norm{\overrightarrow{oa}}_2 * \norm{\overrightarrow{ob}}_2}\right|$\\
+	\end{block}
+	
+	\lstset{
+		language=C++,
+		tabsize=1
+	}
+	\lstinputlisting[firstline=52, lastline=59]{vectors.cpp}
 \end{frame}
