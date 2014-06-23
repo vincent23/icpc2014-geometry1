@@ -44,7 +44,6 @@ bool ccw(point p, point q, point r) {
 }
 
 //Kollinear-Test
-const double EPS = 1e-9;
 bool collinear(point p, point q, point r) {
     return fabs(cross(toVec(p, q), toVec(p, r))) < EPS;
 }
